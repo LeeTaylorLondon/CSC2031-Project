@@ -24,8 +24,16 @@ and then press the keyboard shortcut opening the command line.
 
 Once in the correct directory then type and execute the command 'docker-compose up'. Typing 
 http://localhost:44444/ into your browser should open the lottery website. To gracefully close
-the application press CTRL+C and type 'docker-compose down'.
+the application press CTRL+C and type 'docker-compose down'.  
 
-![Image of Login](/images/login.png)
+Users may input a username and password to login.
+
+![Image of Login](/images/login.png)  
+
+Users may create an account. Note the phone number should be 13 digits with dashes in place shown in 
+the image below. Also note a password must contain more than 8 characters but less than 15, with atleast
+one upper and lower case letter and a digit. 
+
+![Image of Register](/images/register.png)
 
 ### 
