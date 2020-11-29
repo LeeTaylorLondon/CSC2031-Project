@@ -38,7 +38,28 @@
     <input type="submit" value="Roll Lottery Numbers">
 </form>
 
-<a href="index.jsp">Home Page</a><br>
+<form action="Logout" method="post">
+    <input type="submit" value="Logout">
+</form>
+
+<script>
+    window.onload = onLoad;
+
+    /**
+     * Prevent path traversal attacks.
+     * */
+    function onLoad(){
+        <% if (session.getAttribute("admin") == null ||
+         !(boolean)session.getAttribute("admin")){
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/admin/admin_home.jsp");
+            dispatcher.forward(request, response);
+        } else {
+            RequestDispatcher dispatcher = request.getRequestDispatcher("error.jsp");
+            request.setAttribute("message", "You do not have permission to view this page.");
+            dispatcher.forward(request, response);
+        }%>
+    }
+</script>
 
 </body>
 </html>

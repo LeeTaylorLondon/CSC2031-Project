@@ -52,7 +52,6 @@
       const phoneNo = document.getElementById("phone");
       const pwd = document.getElementById("password");
       const submit = document.getElementById("submit");
-      // WIP & USED IN DEBUG -> loginbtn
       const loginbtn = document.getElementById("login");
       const session = sessionStorage
 
@@ -61,7 +60,6 @@
               // alert("Set failedLogs to 0")  // Debug info
               session.setItem("failedLogs", "0")
           }
-          // alert("failedLogs = " + session.getItem("failedLogs"))  // Debug info
           if (session.getItem("failedLogs") === "3"){
               alert("Maximum failed login attempts exceeded!")
               loginbtn.disabled = true;
@@ -69,6 +67,7 @@
       }
 
       function loginAttempts() {
+          session.setItem("attemptedLogin", "true")
           if (session.getItem("failedLogs") === "3"){
               return false;
           } else {
@@ -96,6 +95,8 @@
        * If a check fails then this returns false in which the form is not submitted.
        * */
       function registerChecks(){
+          // Session variable indicates user did not attempt to login
+          session.setItem("attemptedLogin", "false")
           // Checks if phone number contains letters
           if (hasLower(phoneNo.value) || hasUpper(phoneNo.value)) {
               alert("Phone number should only contain numbers!")

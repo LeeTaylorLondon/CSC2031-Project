@@ -38,7 +38,9 @@
     <input type="submit" value="Roll Lottery Numbers">
 </form>
 
-<a href="index.jsp">Home Page</a><br>
+<form action="Logout" method="post">
+    <input type="submit" value="Logout">
+</form>
 
 </body>
 </html>

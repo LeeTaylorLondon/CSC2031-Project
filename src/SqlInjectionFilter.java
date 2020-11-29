@@ -38,9 +38,6 @@ public class SqlInjectionFilter implements Filter {
      *
      * @throws ServletException
      *         Thrown if forwarded Servlet does not exist.
-     *
-     * @throws IOException
-     *         Thrown if input to a directory that does not exist.
      * */
     public void doFilter(ServletRequest request, ServletResponse resp, FilterChain chain) throws ServletException,
             IOException {

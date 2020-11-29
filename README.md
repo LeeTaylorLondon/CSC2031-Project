@@ -31,9 +31,12 @@ Users may input a username and password to login.
 ![Image of Login](/images/login.png)  
 
 Users may create an account. Note the phone number should be 13 digits with dashes in place shown in 
-the image below. Also note a password must contain more than 8 characters but less than 15, with atleast
-one upper and lower case letter and a digit. 
+the image below. Also note a password must contain more than 8 characters but less than 15, with at least
+one upper and lower case letter and a digit. A user may register as an admin granting them access to the 
+admin page.
 
 ![Image of Register](/images/register.png)
+
+
 
 ### 

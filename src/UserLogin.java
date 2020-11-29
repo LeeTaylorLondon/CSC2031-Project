@@ -115,13 +115,13 @@ public class UserLogin extends HttpServlet {
             // Account-data is not null therefore it needs to point to it's data
             accountData.next();
 
+            // Get session
+            HttpSession session = request.getSession();
+
             /* Check extracted hash based on submitted username against submitted password.
             Hash string stored in database is composed of salt and cipher text to
             prevent rainbow table attacks */
             if (BCrypt.checkpw(password, accountData.getString("Pwd"))){
-
-                // Get session
-                HttpSession session = request.getSession();
 
                 // Init. Encryption
                 EncryptRSA encryption = new EncryptRSA(request);
@@ -138,19 +138,20 @@ public class UserLogin extends HttpServlet {
                 // Check if user is admin
                 if (accountData.getString("Admin").equals("1")){
                     // If user is admin set next page to admin home
+                    session.setAttribute("admin", true);
                     dispatcher = request.getRequestDispatcher("/admin/admin_home.jsp");
                 } else {
                     // Also add public & private keys for encrypting and decrypting user numbers
                     encryption.checkForKeys();
                     session.setAttribute("keys", encryption);
                     // If user is not admin set next page to account page
+                    session.setAttribute("admin", false);
                     dispatcher = request.getRequestDispatcher("/account.jsp");
                 }
 
             // If BCrypt check of input & stored hash fails then forward to error page
             } else {
                 dispatcher = request.getRequestDispatcher("/error.jsp");
-                request.setAttribute("attemptedLogin", true);
                 request.setAttribute("message", "Login unsuccessful!");
             }
 
@@ -170,7 +171,7 @@ public class UserLogin extends HttpServlet {
             try {
                 if (stmt != null)
                     stmt.close();
-            } catch (SQLException se2) {
+            } catch (SQLException ignored) {
             }
             try {
                 if (conn != null)

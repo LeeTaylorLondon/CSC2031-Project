@@ -38,6 +38,44 @@
     </filter-mapping>
 
     <servlet>
+        <servlet-name>GetAllData</servlet-name>
+        <servlet-class>GetAllData</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetAllData</servlet-name>
+        <url-pattern>/GetAllData</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>GetWinningNumbers</servlet-name>
+        <servlet-class>GetWinningNumbers</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetWinningNumbers</servlet-name>
+        <url-pattern>/GetWinningNumbers</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>RollWinningNumbers</servlet-name>
+        <servlet-class>RollWinningNumbers</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RollWinningNumbers</servlet-name>
+        <url-pattern>/RollWinningNumbers</url-pattern>
+    </servlet-mapping>
+
+    <filter>
+        <filter-name>RBAC</filter-name>
+        <filter-class>RoleBaseAccessControl</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>RBAC</filter-name>
+        <servlet-name>GetAllData</servlet-name>
+        <servlet-name>GetWinningNumbers</servlet-name>
+        <servlet-name>RollWinningNumbers</servlet-name>
+    </filter-mapping>
+
+    <servlet>
         <servlet-name>UserLogin</servlet-name>
         <servlet-class>UserLogin</servlet-class>
     </servlet>

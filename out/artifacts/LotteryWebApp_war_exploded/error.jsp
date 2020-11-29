@@ -15,17 +15,12 @@
         const session = sessionStorage;
 
         function onLoad() {
-            if (session.getItem("attemptedLogin") === true) {
+            if (session.getItem("attemptedLogin") === "true") {
                 let x = parseInt(session.getItem("failedLogs"))
                 x = x + 1
                 session.setItem("failedLogs", String(x))
             }
         }
-
-    </script>
-
-    <script>
-
 
     </script>
 

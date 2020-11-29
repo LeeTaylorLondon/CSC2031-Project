@@ -36,7 +36,9 @@
 <div> <%if (session.getAttribute("win") != null) {
     out.print(session.getAttribute("winMessage")); } %> </div><br>
 
-<a href="index.jsp">Home Page</a><br>
+<form action="Logout" method="post">
+    <input type="submit" value="Logout">
+</form>
 
 <div> <%if (request.getAttribute("draws") != null) {
     ArrayList<String> draws = (ArrayList<String>)request.getAttribute("draws");

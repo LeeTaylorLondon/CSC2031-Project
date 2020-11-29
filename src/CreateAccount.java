@@ -124,9 +124,6 @@ public class CreateAccount extends HttpServlet {
             // Init RequestDispatcher object
             RequestDispatcher dispatcher;
 
-            // Init. Encryption
-            EncryptRSA encryption = new EncryptRSA(request);
-
             // display account.jsp page with given message if successful
             HttpSession session = request.getSession();
             session.setAttribute("message", firstname+", you have successfully created an account");
@@ -136,15 +133,8 @@ public class CreateAccount extends HttpServlet {
             session.setAttribute("email", email);
             session.setAttribute("hash", hash);
 
-            // If the user registered as an admin, user is directed to admin page otherwise to account page
-            if (adminBit.equals("1")){
-                dispatcher = request.getRequestDispatcher("/admin/admin_home.jsp");
-            } else {
-                // Also add public & private keys for encrypting and decrypting user numbers
-                encryption.checkForKeys();
-                session.setAttribute("keys", encryption);
-                dispatcher = request.getRequestDispatcher("account.jsp");
-            }
+            // Keep the user on the same page
+            dispatcher = request.getRequestDispatcher("index.jsp");
             dispatcher.forward(request, response);
 
         } catch(Exception se){
@@ -160,7 +150,7 @@ public class CreateAccount extends HttpServlet {
                 if(stmt!=null)
                     stmt.close();
             }
-            catch(SQLException se2){}
+            catch(SQLException ignored){}
             try{
                 if(conn!=null)
                     conn.close();
