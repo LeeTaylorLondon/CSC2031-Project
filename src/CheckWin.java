@@ -107,7 +107,7 @@ public class CheckWin extends HttpServlet {
             return;
         }
 
-        // Delete user numbers from the text file as stated per requirement
+        // Delete user numbers from the text file as stated in requirements
         FileWriter fw = new FileWriter(fileName);
         fw.write("");
         fw.close();

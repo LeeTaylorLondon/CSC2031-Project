@@ -14,7 +14,9 @@
         window.onload = onLoad;
         const session = sessionStorage;
 
+        // Increases failed-logins counter
         function onLoad() {
+            // Performs check to only increase if the user failed to log in
             if (session.getItem("attemptedLogin") === "true") {
                 let x = parseInt(session.getItem("failedLogs"))
                 x = x + 1

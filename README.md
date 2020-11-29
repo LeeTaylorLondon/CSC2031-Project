@@ -26,17 +26,28 @@ Once in the correct directory then type and execute the command 'docker-compose 
 http://localhost:44444/ into your browser should open the lottery website. To gracefully close
 the application press CTRL+C and type 'docker-compose down'.  
 
-Users may input a username and password to login.
+Users may input an existing username and password to login. Note failing to login after 3 attempts 
+will disable the login button.
 
 ![Image of Login](/images/login.png)  
 
 Users may create an account. Note the phone number should be 13 digits with dashes in place shown in 
-the image below. Also note a password must contain more than 8 characters but less than 15, with at least
+the image below. Also, note a password must contain more than 8 characters but less than 15, with at least
 one upper and lower case letter and a digit. A user may register as an admin granting them access to the 
 admin page.
 
 ![Image of Register](/images/register.png)
 
+For a non-admin user they may choose 6 lottery numbers. Either by inputting 6 numbers or clicking the
+lucky dip button that adds 6 secure random numbers for them. Note the user must click 'add users numbers'
+to actually store the numbers. The get draws button displays all the numbers chosen by the user in a table.
+The check your pickings button checks if the current user's numbers match the winning numbers.
 
+![Image of Logged in User Account](/images/account.png)
+
+An admin may view all the user account information, except the password hash. They may also see the winning 
+numbers and previous results. Lastly they may spin a new set of winning numbers.
+
+![Image of admin page](/images/admin.png)
 
 ### 

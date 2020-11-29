@@ -80,7 +80,7 @@ public class AddUserNumbers extends HttpServlet {
         // Append newline character to write all text on different lines
         content = content + "\n";
         File file = new File(fileName);
-        // Create output stream to file, append is true to add more lines
+        // Create output stream to file, append is true so that it adds lines
         FileOutputStream fos = new FileOutputStream(file, true);
         // Write the bytes to the file
         byte[] bytesArray = content.getBytes();

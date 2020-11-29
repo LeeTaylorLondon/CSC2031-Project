@@ -47,7 +47,7 @@
   </form>
 
   <script>
-      window.onload = onLoad;
+      window.onload = onLoad;  // Execute when this page is loaded
       const register = document.getElementById("register");
       const phoneNo = document.getElementById("phone");
       const pwd = document.getElementById("password");
@@ -55,18 +55,23 @@
       const loginbtn = document.getElementById("login");
       const session = sessionStorage
 
+      // Checks for counter tracking failed logs in
       function onLoad(){
+          // Creates counter if none exists
           if (session.getItem("failedLogs") === null){
               // alert("Set failedLogs to 0")  // Debug info
               session.setItem("failedLogs", "0")
           }
+          // Disables log in button if counter reaches 3
           if (session.getItem("failedLogs") === "3"){
               alert("Maximum failed login attempts exceeded!")
               loginbtn.disabled = true;
           }
       }
 
+      // Prevents re-enabling the button through inspect element
       function loginAttempts() {
+          // Indicates user failed to log in
           session.setItem("attemptedLogin", "true")
           if (session.getItem("failedLogs") === "3"){
               return false;
