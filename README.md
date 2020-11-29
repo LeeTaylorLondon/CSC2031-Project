@@ -59,6 +59,8 @@ See the [LICENSE.md](/LICENSE.md) file for license details.
 * [jBCrypt](https://www.mindrot.org/projects/jBCrypt/) - Used for hashing
 * [Codec](https://commons.apache.org/proper/commons-codec/download_codec.cgi) - Used for encrypting and decrypting in base64
 * [Wurst7](https://www.programcreek.com/java-api-examples/?code=Wurst-Imperium%2FWurst7%2FWurst7-master%2Fsrc%2Fmain%2Fjava%2Fnet%2Fwurstclient%2Faltmanager%2FEncryption.java) - Used to store and extract keys as objects
+* [JUnit](https://search.maven.org/search?q=g:junit%20AND%20a:junit) - Used for Testing
+* [Hamcrest](https://search.maven.org/artifact/org.hamcrest/hamcrest-core/1.3/jar) - Used to make Junit function
 
 ### Author 
 
